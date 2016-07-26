@@ -29,16 +29,14 @@ function updatePrevision(dados) {
     var max = dados.list[0].temp.min;
     updateValuesToday(min,max);
     updateCityName(dados.city.name);
-
-    
     var showImage = isHotWeekend(dados.list);
     showIsBeachDay(showImage);
-    //createGraphic(dados);
+    createGraphic(dados.list);
     
 }
 
 function messageErro(message){
-    console.log("infelismente ocorreu um erro, verifique o nome da cidade e veja se corresponde ao estado");
+    alert("infelismente ocorreu um erro, verifique o nome da cidade e veja se corresponde ao estado");
 }
 
 function updateValuesToday(min, max){
@@ -52,6 +50,95 @@ function updateCityName(name){
 
 
 function createGraphic(dados){
+    var day = [];
+    for(var i=0; i<dados.length; i++){
+            day[i] = new Object();
+        	day[i].date = new Date(dados[i].dt * 1000);
+        	day[i].max =  dados[i].temp.max;
+        	day[i].min = dados[i].temp.min;
+        
+	    }
+    
+
+    var chart = new CanvasJS.Chart("graphicTemperature", {
+			title:{
+				text: "Evolução da temperatura durante a semana",
+				fontSize: 30
+			},
+            animationEnabled: true,
+			axisX:{
+
+				gridColor: "Silver",
+				tickColor: "silver",
+				valueFormatString: "DD/MMM"
+
+			},                        
+                        toolTip:{
+                          shared:true
+                        },
+			theme: "theme2",
+			axisY: {
+				gridColor: "Silver",
+				tickColor: "silver"
+			},
+			legend:{
+				verticalAlign: "center",
+				horizontalAlign: "right"
+			},
+			data: [
+			{        
+				type: "line",
+				showInLegend: true,
+				lineThickness: 2,
+				name: "Min",
+				markerType: "square",
+				color: "#F08080",
+				dataPoints: [
+					{ x: new Date(day[0].date), y: day[0].min },
+                    { x: new Date(day[1].date), y: day[1].min },
+                    { x: new Date(day[2].date), y: day[2].min },
+                    { x: new Date(day[3].date), y: day[3].min },
+                    { x: new Date(day[4].date), y: day[4].min },
+                    { x: new Date(day[5].date), y: day[5].min },
+                    { x: new Date(day[6].date), y: day[6].min }
+				]
+			},
+			{        
+				type: "line",
+				showInLegend: true,
+				name: "Max",
+				color: "#20B2AA",
+				lineThickness: 2,
+
+				dataPoints: [
+					{ x: new Date(day[0].date), y: day[0].max },
+                    { x: new Date(day[1].date), y: day[1].max },
+                    { x: new Date(day[2].date), y: day[2].max },
+                    { x: new Date(day[3].date), y: day[3].max },
+                    { x: new Date(day[4].date), y: day[4].max },
+                    { x: new Date(day[5].date), y: day[5].max },
+                    { x: new Date(day[6].date), y: day[6].max }
+				]
+			}
+
+			
+			],
+          legend:{
+            cursor:"pointer",
+            itemclick:function(e){
+              if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+              	e.dataSeries.visible = false;
+              }
+              else{
+                e.dataSeries.visible = true;
+              }
+            }
+          }
+		});
+
+     chart.render();
+
+
     
 }
 
