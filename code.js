@@ -15,7 +15,7 @@ function getClima(){
 function updatePrevision(dados) {
     var todayMin = dados.list[0].temp.min;
     var todayMax = dados.list[0].temp.max;
-    
+    var showImage = isHotWeekend(dados.list);
     createGraphic(dados);
 }
 
@@ -25,4 +25,21 @@ function messageErro(mensage){
 
 function createGraphic(dados){
     
+}
+
+function isHotWeekend(days){
+    var weekend = [];
+    for(var i; i< days.length; i++){
+        var day = days[i].getDay();
+       if((day == 6) || (day == 0)){
+           weekend[weekend.length]= day[i].temp.min;
+       }
+    }
+    if(isDayhot(weekend[0])  && isDayhot(weekend[0]) ){
+      return true;  
+    }
+}
+
+function isDayhot(day) {
+    return day > 25 ? true : false;
 }
