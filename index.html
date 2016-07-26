@@ -3,8 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; target-densityDpi=device-dpi" />
         <meta charset="utf-8"/>
+      <link href="https://file.myfontastic.com/BrfnXJUJFTejDptcdQsssF/icons.css" rel="stylesheet">
         <title>Previsão do tempo</title>
-        <link href="https://file.myfontastic.com/BrfnXJUJFTejDptcdQsssF/icons.css" rel="stylesheet">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
         <link rel="stylesheet" href="style.css" type="text/css" />
@@ -53,16 +53,21 @@
           </form>
         </section>
         <section class="findedTemperature col-sm-10 col-sm-offset-1">
+          <h1>Previsão Para a cidade de:</h1>
           <article class="col-xs-12 col-sm-4 card-panel blue-grey row">
             <h5>Variação da temperatura do dia:</h5>
-            <label for="todayMin">Minima:</label>
-            <input id="todayMin" type="numeric" />
-            <label for="todayMax">Máxima:</label>
-            <input id="todayMax" type="numeric" />
+            <p>
+              <label for="todayMin">Minima:</label>
+              <input id="todayMin" type="numeric" />
+            </p>
+            <p>
+              <label for="todayMax">Máxima:</label>
+              <input id="todayMax" type="numeric" />
+            </p>
           </article>
           <article class="col-xs-12 col-sm-4 card-panel teal row">
             <h5>Fim de semana vai dar Praia?</h5>
-            <img id="paia"></img>
+            <i id="beach" class="icon"></i>
           </article>
           <article class="col-xs-12 col-sm-4 card-panel blue-grey row">
             <h5>Evolução da temperatura durante a semana</h5>
