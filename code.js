@@ -1,10 +1,16 @@
+$('#getClime').on('submit', function(e) {
+    e.preventDefault();
+    getClima();
+});
+
 function getClima(){
     // var city = document.getElementById("city").value.toLowerCase().trim();
     // var state = $("#state").val().toLowerCase();
     var city = "blumenau";
-    var state = "santacatarina"
+    var state = "santacatarina";
 
     $.ajax({
+        type: "GET",
         url:'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city +',' + state +',br&mode=json&units=metric&cnt=7&appid=fece2aa20ad50047740813901a13081a',
         dataType: 'json',
         success: updatePrevision,
@@ -13,13 +19,15 @@ function getClima(){
 }
 
 function updatePrevision(dados) {
-    var todayMin = dados.list[0].temp.min;
-    var todayMax = dados.list[0].temp.max;
-    var showImage = isHotWeekend(dados.list);
-    createGraphic(dados);
+    document.getElementById("todayMin").value = dados.list[0].temp.min;
+    document.getElementById("todayMax").value = dados.list[0].temp.max;
+
+    //var showImage = isHotWeekend(dados.list);
+    //createGraphic(dados);
+    
 }
 
-function messageErro(mensage){
+function messageErro(message){
     console.log("infelismente ocorreu um erro, verifique o nome da cidade e veja se corresponde ao estado");
 }
 

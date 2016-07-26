@@ -15,7 +15,7 @@
       </header>
       <div class="container-fluid">
         <section class="choseCity col-sm-10 col-sm-offset-1">
-          <form name="getClime">
+          <form id="getClime">
             <label for="city">Escolha a cidade:</label>
             <input id="city" type="text" name="citySelected" placeholder="Ex: Blumenau" required/>
             <label for="state">Estado:</label>
@@ -49,14 +49,16 @@
               <option value="Sergipe">Sergipe (SE)</option>                
               <option value="Tocantins">Tocantins (TO)</option> 
             </select>
-            <input class="btn btn-primary" type="submit" name="Pesquisar" onclick="getClima(citySelected,stateSelected)"/>
+            <input class="btn btn-primary" type="submit" name="Pesquisar" />
           </form>
         </section>
         <section class="findedTemperature col-sm-10 col-sm-offset-1">
           <article class="col-xs-12 col-sm-4 card-panel blue-grey row">
             <h5>Variação da temperatura do dia:</h5>
-            <h6>Minima:</h6>
-            <h6>Maxima:</h6>
+            <label for="todayMin">Minima:</label>
+            <input id="todayMin" type="numeric" />
+            <label for="todayMax">Máxima:</label>
+            <input id="todayMax" type="numeric" />
           </article>
           <article class="col-xs-12 col-sm-4 card-panel teal row">
             <h5>Fim de semana vai dar Praia?</h5>
