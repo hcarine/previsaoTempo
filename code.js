@@ -28,7 +28,8 @@ function updatePrevision(dados) {
     var min = dados.list[0].temp.min;
     var max = dados.list[0].temp.min;
     updateValuesToday(min,max);
-    //city name ===$('h1').html("I have " + count + " list items");
+    updateCityName(dados.city.name);
+
     
     var showImage = isHotWeekend(dados.list);
     showIsBeachDay(showImage);
@@ -43,6 +44,10 @@ function messageErro(message){
 function updateValuesToday(min, max){
   document.getElementById("todayMin").value = min;
   document.getElementById("todayMax").value = max;
+}
+
+function updateCityName(name){
+   $('#cityName').html("Previsão para a cidade de: " + name);
 }
 
 
@@ -77,7 +82,6 @@ function showIsBeachDay(value){
     else
         icon = 'icon-frown-o';
     document.getElementById("beach").classList.add(icon);
-    
 }
 
 init();
