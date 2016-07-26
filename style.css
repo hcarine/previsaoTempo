@@ -13,7 +13,21 @@
     color: yellow;
 }
 .icon.icon-frown-o {
-    color: red;
+    color: #863030;
+}
+
+.tempVariavel input{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.tempVariavel label{
+    font-size: 20px;
+    color: black;
 }
 
 @media (max-width: 480px) {
@@ -27,11 +41,15 @@
 }
 
 @media (min-width: 960px) and (max-width: 2111px) {
-
+    article{
+        height: 342px;
+    }
     
     
 }
 @media (min-width: 2112px) {
-
+    article{
+        height: 342px;
+    }
     
 }

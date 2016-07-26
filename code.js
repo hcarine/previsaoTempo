@@ -1,9 +1,7 @@
 $('#getClime').on('submit', function(e) {
     e.preventDefault();
-    // var city = document.getElementById("city").value.toLowerCase().trim();
-    // var state = $("#state").val().toLowerCase();
-    var city = "blumenau";
-    var state = "santacatarina";
+    var city = document.getElementById("city").value.toLowerCase().trim();
+    var state = $("#state").val().toLowerCase();
     getClima(city,state);
 });
 
@@ -76,7 +74,7 @@ function createGraphic(dados){
                         toolTip:{
                           shared:true
                         },
-			theme: "theme2",
+			theme: "theme3",
 			axisY: {
 				gridColor: "Silver",
 				tickColor: "silver"
