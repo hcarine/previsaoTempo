@@ -70,12 +70,14 @@ function isDayhot(day) {
 }
 
 function showIsBeachDay(value){
-    if(value === true){
-        document.getElementById("beach").classList.add('icon-happy-smiley-streamline');
-    }
-    else{
-        document.getElementById("beach").classList.add('icon-frown-o');
-    }
+    var icon;
+    if(value)
+      icon = 'icon-happy-smiley-streamline';
+    
+    else
+        icon = 'icon-frown-o';
+    document.getElementById("beach").classList.add(icon);
+    
 }
 
 init();
